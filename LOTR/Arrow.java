@@ -14,12 +14,12 @@ public class Arrow extends Actor
      */
     public void act() 
     {
-        if (Greenfoot.isKeyDown("left"))
+        if (Greenfoot.isKeyDown("up"))
         {
             setRotation (getRotation() - 5);
         }
         
-        if (Greenfoot.isKeyDown("right"))
+        if (Greenfoot.isKeyDown("down"))
         {
             setRotation (getRotation() + 5);
         }
@@ -31,7 +31,7 @@ public class Arrow extends Actor
             fireSpecial();
         }else{
             fire();
-        } 
+        }
     }
     }  
     

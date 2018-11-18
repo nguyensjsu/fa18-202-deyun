@@ -12,7 +12,7 @@ public class NormalSpell extends Powers
     {
        splatter();
        getEnemy();
-       move(20);
+       move(10);
         try{
         if (isAtEdge())
         {
@@ -25,16 +25,7 @@ public class NormalSpell extends Powers
         if (isTouching(Elf.class))
         {
             removeTouching(Elf.class);
-            IMoveStrategy newMoveStrategy;
-            if ( Greenfoot.getRandomNumber(100) < 30 )
-            {
-                // 30% time sinusoidal strategy
-                newMoveStrategy = new SinusoidalMovementStrategy();
-            }else {
-                // 70% time straight strategy
-                newMoveStrategy = new StraightMovementStrategy();
-            }
-            getWorld().addObject(new Elf(newMoveStrategy),1280, Greenfoot.getRandomNumber(getWorld().getHeight()));  
+            getWorld().addObject(new Elf(0-getRandomNumber(2,5)),1280, Greenfoot.getRandomNumber(getWorld().getHeight()));  
             getWorld().removeObject(this); 
         }
     }
@@ -42,16 +33,19 @@ public class NormalSpell extends Powers
     {
          if(isTouching(Elf.class))
         {
-            LeafSplat splat = new LeafSplat();
-            getWorld().addObject(splat, getX(), getY());
+            ImageRepositoryImpl repo = new ImageRepositoryImpl();
+            int i = Greenfoot.getRandomNumber(2);
+            getWorld().addObject(repo.getImage(i),getX(),getY());
+            //LeafSplat splat = new LeafSplat();
+            //getWorld().addObject(splat, getX(), getY());
         }
     }
     
-        public int getRandomNumber(int start,int end)
-{
+    public int getRandomNumber(int start,int end)
+    {
        int normal = Greenfoot.getRandomNumber(end-start+1);
        return normal+start;
-}
+    }
     
     
 }

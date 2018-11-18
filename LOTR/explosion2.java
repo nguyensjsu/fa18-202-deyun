@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class LeafSplat extends Actor
+public class explosion2 extends Actor
 {
     /**
      * Act - do whatever the LeafSplat wants to do. This method is called whenever
